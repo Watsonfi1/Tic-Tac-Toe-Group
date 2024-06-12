@@ -27,8 +27,9 @@ def intro():
 
 
 # // Main Code \\
+#Abreviations for Top left, Top Right, ect
+TL = TM = TR = ML = MM = MR = BL = BM = BR = "  "
+print("* * * * * * * * * * * * * \n*       *       *       *\n*  {}   *  {}   *  {}   *\n*       *       *       *\n* * * * * * * * * * * * *".format(TL,TM,TR),
+      "\n*       *       *       *\n*  {}   *  {}   *  {}   *\n*       *       *       *\n* * * * * * * * * * * * * \n*       *       *       *".format(ML,MM,MR),
+      "\n*  {}   *  {}   *  {}   *\n*       *       *       *\n* * * * * * * * * * * * * \n".format(BL,BM,BR))
 
-print("* * * * * * * * * * * * * \n*       *       *       *\n*  {}   *  {}   *       *\n*       *       *       *\n* * * * * * * * * * * * *",
-      "\n*       *       *       *\n*       *       *       *\n*       *       *       *\n* * * * * * * * * * * * * \n*       *       *       *",
-      "\n*       *       *       *\n*       *       *       *\n* * * * * * * * * * * * * \n")
-intro()
