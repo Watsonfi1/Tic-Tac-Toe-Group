@@ -2,7 +2,6 @@
 def singleplayer():
     print("singleplayer")
 def multiplayer():
-    print("Alright, you have selected multiplayer.")
     while True:
         readinstructions = input("Do you want the instructions (Yes/No)? ").lower()
         if readinstructions == "yes":
