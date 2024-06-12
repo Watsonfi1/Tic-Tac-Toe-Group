@@ -1,5 +1,6 @@
 # // Functions \\
-
+def function():
+    print("hello")
 
 # // Variables \\
 
