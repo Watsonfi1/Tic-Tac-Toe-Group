@@ -5,4 +5,3 @@ def intro():
 
 
 # // Main Code \\
-ihatecorey()
