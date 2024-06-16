@@ -1,4 +1,8 @@
 # // Functions \\
+def WinLoseScore ():
+    global guesses
+    for i in possible_wins:
+        if 
 def singleplayer():
     print("singleplayer")
 def multiplayer():
@@ -18,18 +22,18 @@ def intro():
             multiplayer()
             break
         elif gamemode == "singleplayer":
+        
             singleplayer()
             break
         else:
             print("That wasn't an option, try singleplayer or multiplayer.")  
 
 # // Variables \\
-
+guesses = []
 
 # // Main Code \\
 #Abreviations for Top left, Top Right, ect
 TL = TM = TR = ML = MM = MR = BL = BM = BR = "  "
-print("* * * * * * * * * * * * * \n*       *       *       *\n*  {}   *  {}   *  {}   *\n*       *       *       *\n* * * * * * * * * * * * *".format(TL,TM,TR),
-      "\n*       *       *       *\n*  {}   *  {}   *  {}   *\n*       *       *       *\n* * * * * * * * * * * * * \n*       *       *       *".format(ML,MM,MR),
-      "\n*  {}   *  {}   *  {}   *\n*       *       *       *\n* * * * * * * * * * * * * \n".format(BL,BM,BR))
-
+print("      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * ".format(TL,TM,TR),
+      "\n      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * \n      *       *       ".format(ML,MM,MR),
+      "\n {}   *  {}   *  {}   \n      *       *       \n".format(BL,BM,BR))
