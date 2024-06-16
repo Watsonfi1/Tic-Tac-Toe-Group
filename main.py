@@ -15,9 +15,12 @@ def intro():
     while True:
         gamemode = input("Would you like to play singleplayer or multiplayer? ").lower()
         if gamemode == "multiplayer":
+            name1 = input("What is player 1's name? ")
+            name2 = input("What is player 2's name? ")
             multiplayer()
             break
         elif gamemode == "singleplayer":
+            name1 = input("What is your name? ")
             singleplayer()
             break
         else:
@@ -32,5 +35,9 @@ TL = TM = TR = ML = MM = MR = BL = BM = BR = "  "
 print("* * * * * * * * * * * * * \n*       *       *       *\n*  {}   *  {}   *  {}   *\n*       *       *       *\n* * * * * * * * * * * * *".format(TL,TM,TR),
       "\n*       *       *       *\n*  {}   *  {}   *  {}   *\n*       *       *       *\n* * * * * * * * * * * * * \n*       *       *       *".format(ML,MM,MR),
       "\n*  {}   *  {}   *  {}   *\n*       *       *       *\n* * * * * * * * * * * * * \n".format(BL,BM,BR))
+<<<<<<< HEAD
 
 intro()
+=======
+intro()
+>>>>>>> c73bd7cea3e4eaa416d16e9351de9b4476a93e8c
