@@ -54,9 +54,15 @@ def intro():
             break
         else:
             print("That wasn't an option, try singleplayer or multiplayer.")  
+def playagain():
+    while True:
+        again = input("Would you like to play again?").lower:
+        if again == "yes":
+            
 
 # // Variables \\
 guesses = []
+play = True
 startingplayer = 1
 BP = ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
 # // Main Code \\
@@ -71,3 +77,5 @@ intro()
 
 BP.pop(moves)
 BP.insert(" X", moves)
+while play = True:
+    play = playagain()
