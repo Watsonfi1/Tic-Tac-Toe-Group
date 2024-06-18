@@ -5,18 +5,38 @@ def WinLoseScore ():
         if currentboard == possible_wins[1][i]:
             print("")
             
+
 def singleplayer():
     print("singleplayer")
 def multiplayer():
     global name1
     global name2
+    global startingplayer
+    global guesses
+    gamecomplete = False
     while True:
-        readinstructions = input("Do you want the instructions (Yes/No)? ").lower()
-        if readinstructions == "yes":
-             print("\nInstructions: Tic-Tac-Toe is a simple kids game, the aim of the game is to get 3 of your shapes in a row on the 3x3 board. When it is your turn to make a move, you will have to enter the number of the \nsquare you want to place your shape in. You are not able to put your shape in a square that is already taken. Each round, 5 points will be awarded to the winning player.\n\nMultiplayer: If the multiplayer gamemode has been selected, both players will be asked for their name at the start. They will enter how many rounds they want to play. After both names have been selected, each player will be asked if they want to start or not. If both players wish to start, there will be a 50/50 chance, if one player wants to start, they will, and if both players do not want to start\n it will be a 50/50 chance.\n\nSingleplayer: If the single player gamemode has been selected, the player will be playing against a computer generating moves. The player will also enter how many rounds they want to play. They will be \nasked for their name, and then the player will always start.")
-             break
-        else:
-             break
+        if startingplayer > 1:
+            while gamecomplete == False:
+                while True:
+                    moves = input("{}, where do you want your first piece to go? ".format(name1))
+                    if moves not in guesses:
+                        try:
+                            int(moves)
+                            break
+                        except:
+                            print("That is not a valid number.")
+                guesses.append(moves)
+                BP.pop(moves)
+                BP.insert(" X", moves)
+
+
+
+            #X starts
+        if startingplayer < 1:
+            #O starts
+
+        #do before ending
+        startingplayer *= -1
 
 def intro():
     global name1
@@ -35,10 +55,18 @@ def intro():
             break
         else:
             print("That wasn't an option, try singleplayer or multiplayer.")  
+def playagain():
+    while True:
+        again = input("Would you like to play again?").lower:
+        if again == "yes":
+            
 
 # // Variables \\
 guesses = []
 possible_wins = [["Player X wins"], ["Player O wins"]]
+play = True
+startingplayer = 1
+BP = ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
 # // Main Code \\
 #Abreviations for Top left, Top Right, ect
 TL = TM = TR = ML = MM = MR = BL = BM = BR = "  "
@@ -48,3 +76,6 @@ print("      *       *       \n {}   *  {}   *  {}   \n      *       *       \n*
       "\n {}   *  {}   *  {}   \n      *       *       \n".format(BL,BM,BR))
 
 intro()
+
+while play = True:
+    play = playagain()
