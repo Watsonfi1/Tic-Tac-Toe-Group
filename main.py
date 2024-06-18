@@ -6,11 +6,23 @@ def multiplayer():
     global name1
     global name2
     global startingplayer
+    global guesses
     gamecomplete = False
     while True:
         if startingplayer > 1:
             while gamecomplete == False:
-                
+                while True:
+                    moves = input("{}, where do you want your first piece to go? ".format(name1))
+                    if moves not in guesses:
+                        try:
+                            int(moves)
+                            break
+                        except:
+                            print("That is not a valid number.")
+                guesses.append(moves)
+
+
+
             #X starts
         if startingplayer < 1:
             #O starts
@@ -46,6 +58,7 @@ def intro():
 # // Variables \\
 guesses = []
 startingplayer = 1
+BP = ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
 # // Main Code \\
 #Abreviations for Top left, Top Right, ect
 TL = TM = TR = ML = MM = MR = BL = BM = BR = "  "
@@ -56,3 +69,5 @@ print("      *       *       \n {}   *  {}   *  {}   \n      *       *       \n*
 
 intro()
 
+BP.pop(moves)
+BP.insert(" X", moves)
