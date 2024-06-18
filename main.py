@@ -3,20 +3,7 @@
 def singleplayer():
     print("singleplayer")
 def multiplayer():
-    global name1
-    global name2
-    global startingplayer
-    gamecomplete = False
-    while True:
-        if startingplayer > 1:
-            while gamecomplete == False:
-                
-            #X starts
-        if startingplayer < 1:
-            #O starts
-
-        #do before ending
-        startingplayer *= -1
+    print("multipleyer")
 
 def intro():
     global name1
@@ -42,9 +29,15 @@ def intro():
             break
         else:
             print("That wasn't an option, try singleplayer or multiplayer.")  
+def playagain():
+    while True:
+        again = input("Would you like to play again?").lower:
+        if again == "yes":
+            
 
 # // Variables \\
 guesses = []
+play = True
 startingplayer = 1
 # // Main Code \\
 #Abreviations for Top left, Top Right, ect
@@ -55,4 +48,5 @@ print("      *       *       \n {}   *  {}   *  {}   \n      *       *       \n*
       "\n {}   *  {}   *  {}   \n      *       *       \n".format(BL,BM,BR))
 
 intro()
-
+while play = True:
+    play = playagain()
