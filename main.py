@@ -1,7 +1,9 @@
 # // Functions \\
 def WinLoseScore ():
-    print("hey")
-    return False
+    global guesses
+    for i in possible_wins:
+        if currentboard == possible_wins[1][i]:
+            print("")  
 
 def singleplayer():
     print("singleplayer")
