@@ -87,7 +87,11 @@ def intro():
             singleplayer()
             break
         else:
-            print("That wasn't an option, try singleplayer or multiplayer.")  
+            print("That wasn't an option, try singleplayer or multiplayer.")
+def playagain():
+    while True:
+        again = input("Would you like to play again?").lower()
+        if again == "yes":
 
 # // Variables \\
 
