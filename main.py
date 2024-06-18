@@ -1,8 +1,5 @@
 # // Functions \\
-def WinLoseScore ():
-    global guesses
-    for i in possible_wins:
-        if 
+
 def singleplayer():
     print("singleplayer")
 def multiplayer():
