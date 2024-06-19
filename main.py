@@ -2,12 +2,59 @@
 def WinLoseScore ():
     global guesses
     for i in possible_wins:
-        if currentboard == possible_wins[1][i]:
             print("")  
 
 def singleplayer():
-    print("singleplayer")
+    # Globals variables
+    global guesses
+    global NUMBERS
+    global bp
+    gamecomplete = False
+
+    while True:
+        startingturn = input("{}, do you want to start (yes/no)? ".format(name1)).lower()
+        if startingturn == "yes".lower():
+            turns = 1
+            break
+        elif startingturn == "no".lower():
+            turns = -1
+            break
+        else:
+            print("That was an invalid answer.")
+    while gamecomplete == False:
+        if turns == 1:
+            # Human player starts
+                while True:
+                    moves = input("{}, where do you want your piece to go? ".format(name1))
+                    if moves not in guesses and moves in NUMBERS:
+                        guesses.append(moves)
+                        try:
+                            moves = int(moves) - 1
+                            break
+                        except:
+                            print("That is not a valid number.")
+                    else:
+                        print("That is an invalid number, or has already been used.")
+                bp.pop(moves)
+                bp.insert(moves, " X")
+                print("      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * ".format(bp[0], bp[1], bp[2]),
+                "\n      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * \n      *       *       ".format(bp[3], bp[4], bp[5]),
+                "\n {}   *  {}   *  {}   \n      *       *       \n".format(bp[6], bp[7], bp[8]))
+                turns *= -1
+                gamecomplete = WinLoseScore()
+        if turns == -1:
+            # Computer player starts
+                moves = random.choice(NUMBERS)
+                bp.pop(moves)
+                bp.insert(moves, " O")
+                print("      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * ".format(bp[0], bp[1], bp[2]),
+                "\n      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * \n      *       *       ".format(bp[3], bp[4], bp[5]),
+                "\n {}   *  {}   *  {}   \n      *       *       \n".format(bp[6], bp[7], bp[8]))
+                turns *= -1
+                gamecomplete = WinLoseScore()
+
 def multiplayer():
+    # Globals variables
     global name1
     global name2
     global guesses
@@ -15,6 +62,7 @@ def multiplayer():
     global bp
     gamecomplete = False
     
+    # Makes the chosen starting player start.
     while True:
         startingturn = input("Who do you want to start ( {} or {} )? ".format(name1, name2)).lower()
         if startingturn == name1.lower():
@@ -33,8 +81,7 @@ def multiplayer():
                     if moves not in guesses and moves in NUMBERS:
                         guesses.append(moves)
                         try:
-                            moves = int(moves)
-                            moves -= 1
+                            moves = int(moves) - 1
                             break
                         except:
                             print("That is not a valid number.")
@@ -54,8 +101,7 @@ def multiplayer():
                     if moves not in guesses and moves in NUMBERS:
                         guesses.append(moves)
                         try:
-                            moves = int(moves)
-                            moves -= 1
+                            moves = int(moves) - 1
                             break
                         except:
                             print("That is not a valid number.")
@@ -84,14 +130,12 @@ def intro():
             break
         elif gamemode == "singleplayer":
             name1 = input("What is your name? ")
+            name1 = name1.lower().capitalize()
             singleplayer()
             break
         else:
             print("That wasn't an option, try singleplayer or multiplayer.")
-def playagain():
-    while True:
-        again = input("Would you like to play again?").lower()
-        if again == "yes":
+
 
 # // Variables \\
 
@@ -101,9 +145,9 @@ possible_wins = [["Player X wins"], ["Player O wins"]]
 play = True
 startingplayer = 1
 bp = ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+import random
 
 # // Main Code \\
 intro()
 
-while play == True:
-    play = playagain()
+
