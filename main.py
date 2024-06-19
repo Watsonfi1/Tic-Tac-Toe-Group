@@ -1,9 +1,23 @@
 # // Functions \\
 def WinLoseScore ():
     global guesses
-    for i in possible_wins:
-        if currentboard == possible_wins[1][i]:
-            print("")  
+    global score1
+    global score2
+    global startingplayer
+    global bp
+    diagonals = [slice(0,9,4), slice(2,7,2)]
+    rows = [slice(0, 3), slice(3,7), slice(6,9)]
+    colums = [slice(0,6,3), slice(1,7,3), slice(2,9,3)]
+    currentboard = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
+    for i in currentboard:
+        if bp[i] == " X":
+            currentboard.pop(i)
+            currentboard.insert(i, "X")
+        if bp[i] == " O":
+            currentboard.pop(i)
+            currentboard.insert(i, "O")
+    for i in diagonals:
+        if currentboard[diagonals[i]] =   
 
 def singleplayer():
     print("singleplayer")
@@ -13,6 +27,7 @@ def multiplayer():
     global guesses
     global NUMBERS
     global bp
+    global startingplayer
     gamecomplete = False
     
     while True:
@@ -101,6 +116,8 @@ possible_wins = [["Player X wins"], ["Player O wins"]]
 play = True
 startingplayer = 1
 bp = ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+score1 = 0
+score2 = 0
 
 # // Main Code \\
 intro()
