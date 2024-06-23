@@ -2,7 +2,7 @@ import random
 import time
 
 # // Functions \\
-def WinLoseScore ():
+def WinLoseScore():
     global guesses
     global score1
     global score2
@@ -15,7 +15,7 @@ def WinLoseScore ():
     rows = [slice(0, 3), slice(3,7), slice(6,9)]
     colums = [slice(0,6,3), slice(1,7,3), slice(2,9,3)]
     currentboard = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
-    for i in currentboard:
+    for i in range(len(9)):
         if bp[i] == " X":
             currentboard.pop(i)
             currentboard.insert(i, "X")
@@ -122,14 +122,15 @@ def multiplayer():
     while True:
         startingturn = input("Who do you want to start ( {} or {} )? ".format(name1, name2)).lower()
         if startingturn == name1.lower():
-            turns = 1
+            turns = -1
             break
         elif startingturn == name2.lower():
-            turns = -1
+            turns = 1
             break
         else:
             print("That wasn't a valid name.")
     while gamecomplete == False:
+        turns *= -1
         if turns == 1:
             # X Starts
                 while True:
@@ -148,7 +149,6 @@ def multiplayer():
                 print("      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * ".format(bp[0], bp[1], bp[2]),
                 "\n      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * \n      *       *       ".format(bp[3], bp[4], bp[5]),
                 "\n {}   *  {}   *  {}   \n      *       *       \n".format(bp[6], bp[7], bp[8]))
-                turns *= -1
                 gamecomplete = WinLoseScore()
         if turns == -1:
             # O Starts
@@ -168,7 +168,6 @@ def multiplayer():
                 print("      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * ".format(bp[0], bp[1], bp[2]),
                 "\n      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * \n      *       *       ".format(bp[3], bp[4], bp[5]),
                 "\n {}   *  {}   *  {}   \n      *       *       \n".format(bp[6], bp[7], bp[8]))
-                turns *= -1
                 gamecomplete = WinLoseScore()
 
 def intro():
