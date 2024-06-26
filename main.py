@@ -8,6 +8,9 @@ def WinLoseScore():
     global score2
     global startingplayer
     global bp
+    num1 = [0,1]
+    num2 = [0,1,2]
+    number = [0,1,2,3,4,5,6,7,8]
     tie = 0
     Xwin = ["X", "X", "X"]
     Owin = ["O", "O", "O"]
@@ -15,7 +18,7 @@ def WinLoseScore():
     rows = [slice(0, 3), slice(3,7), slice(6,9)]
     colums = [slice(0,6,3), slice(1,7,3), slice(2,9,3)]
     currentboard = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
-    for i in range(len(9)):
+    for i in number:
         if bp[i] == " X":
             currentboard.pop(i)
             currentboard.insert(i, "X")
@@ -24,32 +27,37 @@ def WinLoseScore():
             currentboard.insert(i, "O")
         if currentboard[i] != ' ':
             tie += 1
-    if currentboard[diagonals] == Xwin:
-        score1 += 1
-        print("{} won! {} has {} score and {} has {} score.".format(name1, name1, score1, name2, score2))
-        return True
-    elif currentboard[diagonals] == Owin:
-        score2 += 1
-        print("{} won! {} has {} score and {} has {} score.".format(name2, name2, score2, name1, score1))
-    if currentboard[rows] == Xwin:
-        score1 += 1
-        print("{} won! {} has {} score and {} has {} score.".format(name1, name1, score1, name2, score2))
-        return True
-    elif currentboard[rows] == Owin:
-        score2 += 1
-        print("{} won! {} has {} score and {} has {} score.".format(name2, name2, score2, name1, score1))
-    if currentboard[colums] == Xwin:
-        score1 += 1
-        print("{} won! {} has {} score and {} has {} score.".format(name1, name1, score1, name2, score2))
-        return True
-    elif currentboard[colums] == Owin:
-        score2 += 1
-        print("{} won! {} has {} score and {} has {} score.".format(name2, name2, score2, name1, score1))
-    if tie == 9:
-        score1 += 0.5
-        score2 += 0.5
-        print("You drew! {} has {} score and {} has {} score.".format(name2, score2, name1, score1))
-        return True
+    for i in num1:
+        if currentboard[diagonals[i]] == Xwin:
+            score1 += 1
+            print("{} won! {} has {} score and {} has {} score.".format(name1, name1, score1, name2, score2))
+            return True
+        elif currentboard[diagonals[i]] == Owin:
+            score2 += 1
+            print("{} won! {} has {} score and {} has {} score.".format(name2, name2, score2, name1, score1))
+            return True
+    for i in num2:
+        if currentboard[rows[i]] == Xwin:
+            score1 += 1
+            print("{} won! {} has {} score and {} has {} score.".format(name1, name1, score1, name2, score2))
+            return True
+        elif currentboard[rows[i]] == Owin:
+            score2 += 1
+            print("{} won! {} has {} score and {} has {} score.".format(name2, name2, score2, name1, score1))
+            return True
+        if currentboard[colums[i]] == Xwin:
+            score1 += 1
+            print("{} won! {} has {} score and {} has {} score.".format(name1, name1, score1, name2, score2))
+            return True
+        elif currentboard[colums[i]] == Owin:
+            score2 += 1
+            print("{} won! {} has {} score and {} has {} score.".format(name2, name2, score2, name1, score1))
+            return True
+        if tie == 9:
+            score1 += 0.5
+            score2 += 0.5
+            print("You drew! {} has {} score and {} has {} score.".format(name2, score2, name1, score1))
+            return True
     return False
        
 
