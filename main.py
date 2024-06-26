@@ -66,8 +66,11 @@ def singleplayer():
     global guesses
     global NUMBERS
     global bp
+    global name2
+    name2 = "Computer"
     gamecomplete = False
 
+    # Sets the starting player
     while True:
         startingturn = input("{}, do you want to start (yes/no)? ".format(name1)).lower()
         if startingturn == "yes".lower():
@@ -83,6 +86,7 @@ def singleplayer():
         if turns == 1:
             # Human player starts
                 while True:
+                    # Asks where the human player wants their piece to go
                     moves = input("{}, where do you want your piece to go? ".format(name1))
                     if moves not in guesses and moves in NUMBERS:
                         guesses.append(moves)
@@ -93,6 +97,7 @@ def singleplayer():
                             print("That is not a valid number.")
                     else:
                         print("That is an invalid number, or has already been used.")
+                # Adds the moves to the variable, then prints the board
                 bp.pop(moves)
                 bp.insert(moves, " X")
                 print("      *       *       \n {}   *  {}   *  {}   \n      *       *       \n* * * * * * * * * * * ".format(bp[0], bp[1], bp[2]),
@@ -101,12 +106,14 @@ def singleplayer():
                 gamecomplete = WinLoseScore()
         if turns == -1:
             # Computer player starts
+                # Generates a random move for the computer
                 while True:
                     moves = random.choice(NUMBERS)
                     if moves not in guesses and moves in NUMBERS:
                         guesses.append(moves)
                         moves = int(moves) - 1
                         break
+                # Adds the moves to the variable, then prints the board
                 bp.pop(moves)
                 bp.insert(moves, " O")
                 print("Alright, it's my turn! - Computer\n")
