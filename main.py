@@ -230,6 +230,8 @@ score2 = 0
 
 
 # // Main Code \\
-intro()
+while play == True:
+    intro()
+    play = playagain()
 
 
