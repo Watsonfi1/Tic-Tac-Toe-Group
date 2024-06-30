@@ -16,7 +16,7 @@ def WinLoseScore():
     Owin = ["O", "O", "O"]
     diagonals = [slice(0,9,4), slice(2,7,2)]
     rows = [slice(0, 3), slice(3,6), slice(6,9)]
-    colums = [slice(0,6,3), slice(1,7,3), slice(2,9,3)]
+    colums = [slice(0,7,3), slice(1,8,3), slice(2,9,3)]
     currentboard = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
     for i in number:
         if bp[i] == " X":
@@ -230,6 +230,9 @@ score2 = 0
 
 
 # // Main Code \\
-intro()
+while play == True:
+    intro()
+    play = playagain()
+
 
 
